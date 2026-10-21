@@ -31,19 +31,7 @@ Se guarda:
   resultados/calibracion_filtrada.yml  si ha habido descartes
   resultados/errores_por_imagen.csv    RMS por fotografía y fotos descartadas
 
-Filtrado: por defecto prueba a retirar la vista de mayor error de reproyección
-si supera 2 píxeles, solo si la eliminación mejora el RMS. Máximo 25 % de
-fotos válidas, sin bajar de ocho fotos. Se pueden cambiar parámetros:
-  python calibracion.py --umbral 1.5 --max-descartes 0.20
 
-Si conoces el lado físico de un cuadrado, por ejemplo 2,5 cm:
-  python calibracion.py --lado-cuadro 0.025
-La matriz intrínseca y la distorsión no necesitan dimensiones físicas,
-pero sí serán necesarias para obtener posiciones 3D métricas del tablero.
-
-IMPORTANTE: una hoja doblada no constituye un tablero plano. Filtrar las fotos
-mejora el RMS, pero NO garantiza una calibración válida. Usa una plantilla
-rígida y tomas con variedad de posición/inclinación cuando sea posible.
 
 PASO 2. COMPARAR ORIGINAL Y RECTIFICADA
 Con una foto tomada por LA MISMA CÁMARA y lente que las fotos de calibración:
@@ -74,7 +62,7 @@ valor inicial, cambia --diccionario cuando corresponda:
 Los ejes se dibujan con cv2.drawFrameAxes: X rojo, Y verde, Z azul.
 Las fotos de calibración no son garantía de que haya ArUco de ese diccionario.
 
-PASO 4 (OPCIONAL). CÁMARA DEL JETBOT A TRAVÉS DE ROS 2
+PASO 4. CÁMARA DEL JETBOT A TRAVÉS DE ROS 2
 Solo si la cámara publica el tópico sensor_msgs/Image (no CompressedImage).
 Con ROS 2, sensor_msgs y cv_bridge instalados en el entorno del robot:
   python3 aruco_ros2.py --ros-args \
@@ -91,8 +79,3 @@ Seleccionar /aruco/image_annotated.
 Comprueba qué publica tu cámara con:
   ros2 topic list
   ros2 topic info /camera/image_raw
-
-
-
-NOTA: no es suficiente que el detector encuentre las esquinas: la calidad de
-la calibración y que el archivo provenga de la cámara del robot importan.
