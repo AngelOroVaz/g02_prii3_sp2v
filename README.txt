@@ -1,10 +1,3 @@
-PRII3 - Sprint 2 - PBI 2.3 - Calibración y ArUco
-=================================================
-
-EXIGENCIAS DEL ENUNCIADO
-- Comparar el tablero Eurobot 2026 original y rectificado con la cámara del robot.
-- Enseñar los parámetros de calibración en un archivo .yml.
-- Identificar ID de cada ArUco y mostrar los ejes de orientación 3D con la cámara del robot.
 
 PREPARACIÓN
 Requisitos: Python 3, OpenCV con módulo aruco y NumPy.
@@ -99,15 +92,7 @@ Comprueba qué publica tu cámara con:
   ros2 topic list
   ros2 topic info /camera/image_raw
 
-ATENCIÓN: el script ROS 2 no recibe tópicos CompressedImage; necesitaría
-una conversión o adaptación. No presume el nombre real del tópico JetBot.
 
-ENTREGA / DEMOSTRACIÓN
-[ ] Imágenes con esquinas encontradas.
-[ ] calibracion.yml (matriz intrínseca, distorsión, tamaño y RMS).
-[ ] Foto del tablero Eurobot 2026: original vs rectificada.
-[ ] Cámara del robot: IDs ArUco + ejes X/Y/Z superpuestos.
-[ ] README con pasos reproducibles en el repo (PBI 2.4).
 
 NOTA: no es suficiente que el detector encuentre las esquinas: la calidad de
 la calibración y que el archivo provenga de la cámara del robot importan.
